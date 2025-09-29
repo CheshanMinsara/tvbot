@@ -1,0 +1,45 @@
+{
+    "local": [
+        { "name": "Hiru TV", "url": "https://tv.hiruhost.com:1936/8012/8012/playlist.m3u8" },
+        { "name": "ITN", "url": "https://j78dp2pnlq5r-hls-live.comcities.net/ITNDigital/cf467ddf13ba30dd3c71435cafa6fd6e.sdp/playlist_dvr.m3u8" },
+        { "name": "Vasantham TV", "url": "https://j78dp2pnlq5r-hls-live.comcities.net/ITNDigital/20a317b0496a4930b375290505e5d628.sdp/playlist_dvr.m3u8" },
+        { "name": "Monara TV", "url": "https://jk3lz8xklw79-hls-live.5centscdn.com/lpl/d0dbe915091d400bd8ee7f27f0791303.sdp/playlist.m3u8" },
+        { "name": "Rupavahini", "url": "http://dammikartmp.tulix.tv/slrc1/slrc1/playlist.m3u8" },
+        { "name": "Siyatha TV", "url": "https://stvlk.live/live/eml079n7ui3ytg1c6x4/index.m3u8" },
+        { "name": "Swarnavahini", "url": "https://jk3lz8xklw79-hls-live.5centscdn.com/live/6226f7cbe59e99a90b5cef6f94f966fd.sdp/playlist.m3u8" }
+    ],
+    "sports": [
+        { "name": "Red Bull TV", "url": "https://3ea22335.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmFrdXRlblRWLWdiX1JlZEJ1bGxUVl9ITFM/playlist.m3u8" },
+        { "name": "Impact Plus!", "url": "https://d2tuwvs0ja335j.cloudfront.net/hls/main.m3u8"}
+    ],
+    "entertainment": [
+        { "name": "AXN Central America", "url": "https://streamer1.nexgen.bz/AXN/index.m3u8" },
+        { "name": "6PR", "url": "https://6prlive.akamaized.net/hls/live/2033806/6PR/index.m3u8"},
+        { "name": "9Gem Sydney", "url": "https://9now-livestreams.akamaized.net/hls/live/2008311/gem-syd/master.m3u8"}
+    ],
+    "animation": [
+        { "name": "3ABN Kids", "url": "https://3abn.bozztv.com/3abn2/Kids_live/smil:Kids_live.smil/playlist.m3u8" },
+        { "name": "Xtrema Anime", "url": "https://stmv1.cnarlatam.com/xtremaanime/xtremaanime/playlist.m3u8"},
+        { "name": "Anime TV", "url": "https://stmv1.srvif.com/animetv/animetv/playlist.m3u8"},
+        { "name": "Anime Zone TV", "url": "http://animezonetv.net/hls/stream.m3u8"},
+        { "name": "Pluto TV Anime (Germany)", "url": "http://cfd-v4-service-channel-stitcher-use1-1.prd.pluto.tv/stitch/hls/channel/608181d420fc8500075f612a/master.m3u8?appName=web&appVersion=unknown&clientTime=0&deviceDNT=0&deviceId=84ae7970-4b92-11ef-aece-533610f1ea34&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=unknown&includeExtendedEvents=false&serverSideAds=false&sid=042724a5-f12e-43ab-9538-dac62e47d082"}
+    ],
+    "auto": [],
+    "business": [],
+    "classic": [],
+    "comedy": [
+        { "name": "FailArmy", "url": "http://cfd-v4-service-channel-stitcher-use1-1.prd.pluto.tv/stitch/hls/channel/5ad9b7ffe738977e2c312133/master.m3u8?appName=web&appVersion=unknown&clientTime=0&deviceDNT=0&deviceId=1b1db1d1-4b81-11ef-a8ac-e146e4e7be02&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=unknown&includeExtendedEvents=false&serverSideAds=false&sid=bc69234c-f1b7-4cf1-9e56-55b23f754867" },
+        { "name": "Just for Laughs Gags", "url": "https://streams2.sofast.tv/sofastplayout/4c727f82-d2ec-4a07-870c-49a6f22ee6f9_0_HLS/master.m3u8" },
+        { "name": "Comedy Central Pluto TV", "url": "http://cfd-v4-service-channel-stitcher-use1-1.prd.pluto.tv/stitch/hls/channel/5ca671f215a62078d2ec0abf/master.m3u8?appName=web&appVersion=unknown&clientTime=0&deviceDNT=0&deviceId=6c282e20-30d3-11ef-9cf5-e9ddff8ff496&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=unknown&includeExtendedEvents=false&serverSideAds=false&sid=c8883a8b-3441-4f7d-a15e-3a8365fbcaef" }
+    ],
+    "cooking": [],
+    "culture": [],
+    "documentary": [
+        { "name": "Docurama", "url": "https://docurama-plex-ingest.cinedigm.com/playlist.m3u8" },
+        { "name": "Real Stories", "url": "https://lds-realstories-plex.amagi.tv/playlist.m3u8" },
+        { "name": "Pluto TV Documentaries", "url": "http://cfd-v4-service-channel-stitcher-use1-1.prd.pluto.tv/stitch/hls/channel/5b85a7582921777994caea63/master.m3u8?appName=web&appVersion=unknown&clientTime=0&deviceDNT=0&deviceId=6c2aed43-30d3-11ef-9cf5-e9ddff8ff496&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=unknown&includeExtendedEvents=false&serverSideAds=false&sid=c20f2b68-5b90-43f4-9269-05ca1653242d" }
+    ],
+    "education": [],
+    "family": [],
+    "general": []
+}

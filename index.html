@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🇱🇰 LankaStream</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #111; color: white; margin: 0; }
+        #videoContainer { width: 100vw; height: 56.25vw; max-height: 50vh; background: black; position: fixed; top: 0; left: 0; z-index: 1000; }
+        #player { width: 100%; height: 100%; object-fit: cover; }
+        .content { padding-top: 55vh; }
+        .category { margin: 20px auto; width: 90%; }
+        .category h2 { border-bottom: 2px solid white; display: inline-block; padding-bottom: 5px; }
+        .channels { display: flex; flex-wrap: wrap; justify-content: center; padding: 10px; }
+        .channel { list-style: none; margin: 5px; padding: 10px; background: #222; cursor: pointer; border-radius: 5px; }
+        .channel:hover { background: #444; }
+        #searchBar { width: 80%; padding: 10px; margin: 20px auto; display: block; font-size: 16px; border-radius: 5px; border: 1px solid #555; background: #222; color: white; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <h1>🇱🇰 LankaStream</h1>
+
+    <div id="videoContainer">
+        <video id="player" controls autoplay></video>
+    </div>
+
+    <div class="content">
+        <input type="text" id="searchBar" placeholder="🔍 Search Channels..." onkeyup="searchChannels()">
+
+        <div class="category">
+            <h2>🇱🇰 Local TV Channels</h2>
+            <ul class="channels" id="localChannels"></ul>
+        </div>
+
+        <div class="category">
+            <h2>🏆 Sports Channels</h2>
+            <ul class="channels" id="sportsChannels"></ul>
+        </div>
+
+        <div class="category">
+            <h2>🎬 Entertainment Channels</h2>
+            <ul class="channels" id="entertainmentChannels"></ul>
+        </div>
+
+        <div class="category">
+            <h2>📺 Animation</h2>
+            <ul class="channels" id="animationChannels"></ul>
+        </div>
+
+        <div class="category">
+            <h2>🚗 Auto</h2>
+            <ul class="channels" id="autoChannels"></ul>
+        </div>
+
+        <div class="category">
+            <h2>💼 Business</h2>
+            <ul class="channels" id="businessChannels"></ul>
+        </div>
+
+        <div class="category">
+            <h2>🎞 Classic</h2>
+            <ul class="channels" id="classicChannels"></ul>
+        </div>
+
+        <div class="category">
+            <h2>😂 Comedy</h2>
+            <ul class="channels" id="comedyChannels"></ul>
+        </div>
+
+        <div class="category">
+            <h2>🍳 Cooking</h2>
+            <ul class="channels" id="cookingChannels"></ul>
+        </div>
+
+        <div class="category">
+            <h2>🎭 Culture</h2>
+            <ul class="channels" id="cultureChannels"></ul>
+        </div>
+
+        <div class="category">
+            <h2>📚 Documentary</h2>
+            <ul class="channels" id="documentaryChannels"></ul>
+        </div>
+
+        <div class="category">
+            <h2>🎓 Education</h2>
+            <ul class="channels" id="educationChannels"></ul>
+        </div>
+
+        <div class="category">
+            <h2>👨‍👩‍👧 Family</h2>
+            <ul class="channels" id="familyChannels"></ul>
+        </div>
+
+        <div class="category">
+            <h2>📡 General</h2>
+            <ul class="channels" id="generalChannels"></ul>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch('channels.json')
+                .then(response => response.json())
+                .then(channels => {
+                    window.channels = channels;
+                    Object.keys(channels).forEach(category => {
+                        if (channels[category].length > 0) {
+                            loadChannels(category, category + "Channels");
+                        } else {
+                            // Hide empty categories
+                            const categoryElement = document.getElementById(category + "Channels");
+                            if (categoryElement && categoryElement.parentElement) {
+                                categoryElement.parentElement.style.display = 'none';
+                            }
+                        }
+                    });
+                })
+                .catch(error => console.error('Error loading channels:', error));
+        });
+
+        function loadChannels(category, elementId) {
+            const channelList = document.getElementById(elementId);
+            if (!channelList) return;
+
+            // Show the category container
+            if (channelList.parentElement) {
+                channelList.parentElement.style.display = 'block';
+            }
+
+            window.channels[category].forEach(channel => {
+                let li = document.createElement("li");
+                li.classList.add("channel");
+                li.textContent = channel.name;
+                li.onclick = () => playChannel(channel.url);
+                channelList.appendChild(li);
+            });
+        }
+
+        function playChannel(url) {
+            const video = document.getElementById("player");
+
+            if (Hls.isSupported()) {
+                const hls = new Hls();
+                hls.loadSource(url);
+                hls.attachMedia(video);
+                video.play();
+            } else {
+                video.src = url;
+                video.play();
+            }
+        }
+
+        function searchChannels() {
+            let input = document.getElementById("searchBar").value.toLowerCase();
+            let allChannels = document.querySelectorAll(".channel");
+
+            allChannels.forEach(channel => {
+                const channelName = channel.textContent.toLowerCase();
+                const parentCategory = channel.closest('.category');
+
+                if (channelName.includes(input)) {
+                    channel.style.display = "block";
+                } else {
+                    channel.style.display = "none";
+                }
+            });
+
+            // Hide category titles if all channels within are hidden
+            document.querySelectorAll('.category').forEach(categoryElement => {
+                const visibleChannels = categoryElement.querySelectorAll('.channel[style*="display: block"]');
+                if (visibleChannels.length === 0 && input) {
+                    categoryElement.style.display = 'none';
+                } else {
+                    // Show category if it has visible channels or if search is cleared
+                    const categoryId = categoryElement.querySelector('.channels').id.replace('Channels', '');
+                    if (window.channels[categoryId] && window.channels[categoryId].length > 0) {
+                       categoryElement.style.display = 'block';
+                    }
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
